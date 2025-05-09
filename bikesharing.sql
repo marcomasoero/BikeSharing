@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 02, 2025 alle 11:19
+-- Creato il: Mag 09, 2025 alle 21:00
 -- Versione del server: 10.4.32-MariaDB
 -- Versione PHP: 8.2.12
 
@@ -59,7 +59,8 @@ CREATE TABLE `stazioni` (
   `nomeStazione` varchar(20) NOT NULL,
   `via` varchar(30) NOT NULL,
   `citta` varchar(30) NOT NULL,
-  `coordinate` varchar(30) NOT NULL
+  `latitudine` varchar(10) NOT NULL,
+  `longitudine` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
