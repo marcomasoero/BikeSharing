@@ -18,8 +18,6 @@
         $rows = $result->fetch_all(MYSQLI_ASSOC);
         $conn->close();
         
-        
-
         foreach($stazioni as $stazione){
             $nBici = 0;
             foreach($rows as $row){
@@ -35,17 +33,13 @@
                 <h5 class='card-title'>".$stazione["nomeStazione"]."</h5>
                 <p class='card-text'>".$stazione["citta"].", ".$stazione["via"]."</p>
                 <p class='card-text'> Numero bici: ".$nBici."</p>
-                <a href=\"'$url_googlemaps'\" class='btn btn-primary'>Vai alla stazione</a>
+                <a href=\"'$url_googlemaps'\" class='btn btn-primary'>Mostra su maps</a>
             </div>
             </div>";
         }
-
-        
-        
     ?>
 
 </div>
-
 
 
 <?php
