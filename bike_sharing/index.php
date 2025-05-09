@@ -1,8 +1,8 @@
 <?php
-    require("./templates/header.php")
+    include_once("./templates/header.php")
 
 ?>
-<div>
+<div class="container_index">
 
     <?php
         require("./conf/db_config.php");
@@ -20,6 +20,7 @@
         
         foreach($stazioni as $stazione){
             $nBici = 0;
+            $nSlot = 50;
             foreach($rows as $row){
                 if($row["nomeStazione"] == $stazione["nomeStazione"]){                                
                     $nBici = $row["nBici"];
@@ -31,9 +32,10 @@
             echo "<div class='card' style='width: 18rem;'>
             <div class='card-body'>
                 <h5 class='card-title'>".$stazione["nomeStazione"]."</h5>
-                <p class='card-text'>".$stazione["citta"].", ".$stazione["via"]."</p>
-                <p class='card-text'> Numero bici: ".$nBici."</p>
-                <a href=\"'$url_googlemaps'\" class='btn btn-primary'>Mostra su maps</a>
+                <p class='card-text'>".$stazione["via"].", ".$stazione["citta"]."</p>
+                <p class='card-text'> Bici disponibili: ".$nBici."</p>
+                <p class='card-text'> Slot liberi: ".($nSlot-$nBici)."</p>
+                <a href='$url_googlemaps' target='_blank' class='btn btn-primary'>Mostra su maps</a>
             </div>
             </div>";
         }
@@ -41,8 +43,7 @@
 
 </div>
 
-
 <?php
-    require("./templates/footer.php")
+    include_once("./templates/footer.php")
 
 ?>

@@ -7,25 +7,25 @@ include_once("./header.php");
 //require_once ("./conf/db_config.php");
 ?>
 
-<div id="central" style="width: 100%;">
-    <form action="../php/login_check.php" method="POST"  style="text-align: center;">
+<div id="central">
+    <form action="../php/login_check.php" method="POST" class="formlogin">
       
-       <p class="titolo_dark">ACCEDI ALLA TUA AREA PERSONALE<p>
+       <p class="titolo_dark">Accedi al tuo account<p>
     
-        <div class="formlogin">
-            <label for="Utente">Utente</label><br>
-            <input type="text" id="user" name="user" placeholder="inserisci utente" required>
+        <div class="divlogin">
+            <!--<label for="Utente">Utente</label><br>-->
+            <input type="text" id="user" name="user" placeholder="inserisci username" required>
         </div>
-        <div class="formlogin">
-            <label for="psw">Password</label><br>
+        <div class="divlogin">
+            <!--<label for="psw">Password</label><br>-->
             <input type="password" id="psw" name="psw" placeholder="inserisci password" required>
         </div>
-        <div class="formlogin">
+        <div>
           <input type="submit" id="registra" value="accedi" class="buttonform">
         </div>
-        <div class="formlogin">
+        <div class="divlogin">
 
-        <p>Non hai il tuo account? <a href="registra_utente_form.php">Registrati</a></p> 
+        <p class="signup-link">Non hai il tuo account? <a href="registra_utente_form.php">Registrati</a></p> 
           
           <?php 
 
