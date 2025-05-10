@@ -16,20 +16,21 @@ if (!isset($_SESSION['login']))
     
 </head>
 <body>
-    <header>    
-        <div id="header_top">
+    <header>
+        <h1>Area Riservata Bikesharing</h1>    
+        <!--<div id="header_top">
             <div class="titolo_bianco">Area Riservata Bikesharing</div>
             <div class="bottoni_header">
                 <input type='button' id='stazioni' class='stazioni' value='stazioni' onClick="location.href='../index.php'">
             </div>
-        </div>
+        </div>-->
 
-        <div id="header_down">
+        <!--<div id="header_down">
             <?php
                 if (isset($_SESSION['login'])){
                     echo "Area riservata Bikesharing: <b>".$_SESSION['nome']." ".$_SESSION['cognome'];
                 }
             ?>
-        </div>
+        </div>-->
     </header>
 <section>

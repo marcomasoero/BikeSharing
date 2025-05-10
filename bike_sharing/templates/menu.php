@@ -6,10 +6,10 @@
     <span class="lines line-3"></span>
   </label>
 
+   <a href="./home_riservata.php" class="menu-item orange">Home<i class="fa fa-star"></i> </a>
    <a href="./crea_stazione_form.php" class="menu-item blue">Crea Stazione<i class="fa fa-anchor"></i> </a>
-   <a href="#" class="menu-item green">Aggiungi Bici<i class="fa fa-coffee"></i> </a>
+   <a href="./aggiungi_bici_form.php" class="menu-item green">Aggiungi Bici<i class="fa fa-coffee"></i> </a>
    <a href="#" class="menu-item purple">Visualizza Corse<i class="fa fa-microphone"></i> </a>
-   <a href="#" class="menu-item orange"> A <i class="fa fa-star"></i> </a>
-   <a href="#" class="menu-item lightblue"> A <i class="fa fa-diamond"></i> </a>
+   <a href="../index.php" class="menu-item lightblue">Visualizza Stazioni<i class="fa fa-diamond"></i> </a>
    <a href="./login.php" class="menu-item red">Log out<i class="fa fa-heart"></i> </a>
 </nav>

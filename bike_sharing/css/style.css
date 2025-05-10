@@ -117,7 +117,7 @@ header h1 {
   margin: 8px 0;
 }
 
-.divlogin input {
+.divlogin input, select {
   background-color: #fff;
   padding: 1.12rem;
   padding-right: 3rem;
@@ -203,10 +203,11 @@ menu {
 }
 
 /* Input validation */
+select,
 input:invalid {
     border-color: red;
 }
-
+select,
 input, input:valid {
     border-color: blue;
 }
@@ -348,7 +349,7 @@ input, input:valid {
 
 .menu {
   position: absolute;
-  top: 190px;
+  top: 115px;/*190*/
   width: 80px;
   height: auto;
   text-align: center;
