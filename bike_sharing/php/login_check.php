@@ -19,7 +19,6 @@ if (($_POST['user']==$row['user'])&&($_POST['psw']==$row['psw'])){ //se il login
     $_SESSION['id_utente']= $row['id'];
     $_SESSION['nome']=$row['nome'];
     $_SESSION['cognome']=$row['cognome'];
-    $_SESSION['user']=$row['user'];
     if($row["tessera"][0] == "A"){
         $_SESSION["tipo"] = "amm";
     }else{
