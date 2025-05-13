@@ -13,10 +13,10 @@
       echo '<a href="./crea_stazione_form.php" class="menu-item blue">Crea Stazione<i class="fa fa-anchor"></i> </a>';
       echo '<a href="./aggiungi_bici_form.php" class="menu-item green">Aggiungi Bici<i class="fa fa-coffee"></i> </a>';
       echo '<a href="./aggiungi_tessera.php" class="menu-item purple">Aggiungi tessera<i class="fa fa-microphone"></i> </a>';
+   }elseif($_SESSION['tipo']=='U'){
+      echo "<a href='' class='menu-item purple'>Visualizza Corse<i class='fa fa-microphone'></i> </a>";
    }
    ?>
-   
-   <a href="#" class="menu-item purple">Visualizza Corse<i class="fa fa-microphone"></i> </a>
    <a href="../index.php" class="menu-item lightblue">Visualizza Stazioni<i class="fa fa-diamond"></i> </a>
    <a href="./login.php" class="menu-item red">Log out<i class="fa fa-heart"></i> </a>
 </nav>

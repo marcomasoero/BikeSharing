@@ -22,7 +22,7 @@ if (($_POST['user']==$row['user'])&&($_POST['psw']==$row['psw'])){ //se il login
     $_SESSION['tipo']=$row['tipo'];
     header("location: ../templates/home_riservata.php");
 }else{ //altrimenti rimando alla pagina del FORM di login una variabile "msg" che verrà letto in
-    header("location: ../index.php?msg=ERR_ACCESSO");
+    header("location: ../templates/login.php?msg=ERR_ACCESSO");
 }
 
 ?>

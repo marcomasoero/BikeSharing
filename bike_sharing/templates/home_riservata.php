@@ -16,10 +16,10 @@ include_once("./header_riservata.php");
 
 <div id="central_home">
     <?php
-        if($_SESSION["tipo"] == "amm"){
+        if($_SESSION["tipo"] == "A"){
             /*echo "<h3>UTENTI</h3>";*/
             require("../conf/db_config.php");
-            $stmt = $conn->prepare("SELECT id_utente, nome, cognome, user, tessera, statoUtente FROM utenti");
+            $stmt = $conn->prepare("SELECT id_utente, nome, cognome, user, tessera, statoUtente FROM utenti WHERE tipo = 'U'");
             $stmt->execute();
             $result = $stmt->get_result();
             $utenti = $result->fetch_all(MYSQLI_ASSOC);
