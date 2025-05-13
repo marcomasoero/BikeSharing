@@ -6,22 +6,17 @@
     <span class="lines line-3"></span>
   </label>
 
-  
-   
+   <a href="./home_riservata.php" class="menu-item orange">Home<i class="fa fa-star"></i> </a>
    <?php
-   if($_SESSION["tipo"] == "amm"){
-      echo "<a href='./home_riservata.php' class='menu-item orange'>Home<i class='fa fa-star'></i> </a>";
-      echo "<a href='./crea_stazione_form.php' class='menu-item blue'>Crea Stazione<i class='fa fa-anchor'></i> </a>";
-      echo "<a href='./aggiungi_bici_form.php' class='menu-item green'>Aggiungi Bici<i class='fa fa-coffee'></i> </a>";
-      echo "<a href='../index.php' class='menu-item lightblue'>Visualizza Stazioni<i class='fa fa-diamond'></i> </a>";
-      echo "<a href='./login.php' class='menu-item red'>Log out<i class='fa fa-heart'></i> </a>";
-   }elseif($_SESSION["tipo"] == "usr"){
-      echo "<a href='./home_riservata.php' class='menu-item orange'>Home<i class='fa fa-star'></i> </a>";
-      echo "<a href='' class='menu-item purple'><i class='fa fa-microphone'></i> </a>";
-      echo "<a href='../index.php' class='menu-item lightblue'>Visualizza Stazioni<i class='fa fa-diamond'></i> </a>";
-      echo "<a href='./login.php' class='menu-item red'>Log out<i class='fa fa-heart'></i> </a>";
+   #echo $_SESSION;
+   if($_SESSION['tipo']=='A'){
+      echo '<a href="./crea_stazione_form.php" class="menu-item blue">Crea Stazione<i class="fa fa-anchor"></i> </a>';
+      echo '<a href="./aggiungi_bici_form.php" class="menu-item green">Aggiungi Bici<i class="fa fa-coffee"></i> </a>';
+      echo '<a href="./aggiungi_tessera.php" class="menu-item purple">Aggiungi tessera<i class="fa fa-microphone"></i> </a>';
    }
-  ?>
+   ?>
    
-   
+   <a href="#" class="menu-item purple">Visualizza Corse<i class="fa fa-microphone"></i> </a>
+   <a href="../index.php" class="menu-item lightblue">Visualizza Stazioni<i class="fa fa-diamond"></i> </a>
+   <a href="./login.php" class="menu-item red">Log out<i class="fa fa-heart"></i> </a>
 </nav>

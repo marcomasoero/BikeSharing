@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Mag 11, 2025 alle 17:33
+-- Creato il: Mag 13, 2025 alle 14:47
 -- Versione del server: 10.4.32-MariaDB
 -- Versione PHP: 8.2.12
 
@@ -76,6 +76,7 @@ CREATE TABLE `utenti` (
   `telefono` varchar(15) DEFAULT NULL,
   `mail` varchar(50) NOT NULL,
   `data_nascita` date NOT NULL,
+  `tipo` char(1) NOT NULL COMMENT '"A" amministratore, "U" utente ',
   `tessera` varchar(10) DEFAULT NULL,
   `scadenza_carta` date NOT NULL,
   `codice_carta` char(16) NOT NULL,
@@ -91,12 +92,12 @@ CREATE TABLE `utenti` (
 -- Dump dei dati per la tabella `utenti`
 --
 
-INSERT INTO `utenti` (`id_utente`, `nome`, `cognome`, `telefono`, `mail`, `data_nascita`, `tessera`, `scadenza_carta`, `codice_carta`, `cvv_carta`, `via`, `citta`, `user`, `psw`, `statoUtente`) VALUES
-(1, 'Simone', 'Arrigoni', '1234567890', 'simone.arrigoni@email.com', '2006-01-15', '1234567890', '0000-00-00', '1234567812345678', '123', 'Via Milano 10', 'Roma', 'simonearrigoni', 'pass1234', 'A'),
-(2, 'Noemi', 'Baruffolo', '0987654321', 'noemi.baruffolo@email.com', '2006-08-04', '6543219876', '0000-00-00', '2345678923456789', '456', 'Via Roma 20', 'Napoli', 'noemibaruffolo', 'abc12345', 'A'),
-(3, 'Bendetta', 'Bergia', '5556667777', 'bendetta.bergia@email.com', '2006-01-16', '9876543210', '0000-00-00', '3456789034567890', '789', 'Viale Trieste 5', 'Milano', 'bendettabergia', '1234abcd', 'A'),
-(4, 'Marco', 'Masoero', '3332221111', 'marco.masoero@email.com', '2006-03-02', '1122334455', '0000-00-00', '4567890145678901', '321', 'Via Torino 7', 'Genova', 'marcomasoero', 'masoero123', 'A'),
-(5, 'admin', 'admin', '0123456789', 'admin@gmail.com', '2025-05-11', '0123456789', '0000-00-00', '1234678123456789', '123', 'admin', 'admin', 'admin', 'Admin1234@', 'A');
+INSERT INTO `utenti` (`id_utente`, `nome`, `cognome`, `telefono`, `mail`, `data_nascita`, `tipo`, `tessera`, `scadenza_carta`, `codice_carta`, `cvv_carta`, `via`, `citta`, `user`, `psw`, `statoUtente`) VALUES
+(1, 'Simone', 'Arrigoni', '1234567890', 'simone.arrigoni@email.com', '2006-01-15', '', '1234567890', '0000-00-00', '1234567812345678', '123', 'Via Milano 10', 'Roma', 'simonearrigoni', 'pass1234', 'A'),
+(2, 'Noemi', 'Baruffolo', '0987654321', 'noemi.baruffolo@email.com', '2006-08-04', '', '6543219876', '0000-00-00', '2345678923456789', '456', 'Via Roma 20', 'Napoli', 'noemibaruffolo', 'abc12345', 'A'),
+(3, 'Bendetta', 'Bergia', '5556667777', 'bendetta.bergia@email.com', '2006-01-16', '', '9876543210', '0000-00-00', '3456789034567890', '789', 'Viale Trieste 5', 'Milano', 'bendettabergia', '1234abcd', 'A'),
+(4, 'Marco', 'Masoero', '3332221111', 'marco.masoero@email.com', '2006-03-02', '', '1122334455', '0000-00-00', '4567890145678901', '321', 'Via Torino 7', 'Genova', 'marcomasoero', 'masoero123', 'A'),
+(5, 'admin', 'admin', '0123456789', 'admin@gmail.com', '2025-05-11', '', '0123456789', '0000-00-00', '1234678123456789', '123', 'admin', 'admin', 'admin', 'Admin1234@', 'A');
 
 --
 -- Indici per le tabelle scaricate
