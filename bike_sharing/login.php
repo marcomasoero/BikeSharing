@@ -25,7 +25,7 @@ include_once("./templates/header.php");
         </div>
         <div class="divlogin">
 
-        <p class="signup-link">Non hai il tuo account? <a href="./templates/registra_utente_form.php">Registrati</a></p>
+        <p class="signup-link">Non hai il tuo account? <a href="./registra_utente_form.php">Registrati</a></p>
         <p class="signup-link"><a href="./index.php">HOME</a></p> 
           
           <?php 
