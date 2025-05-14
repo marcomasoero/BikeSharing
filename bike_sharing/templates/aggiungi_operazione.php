@@ -13,7 +13,7 @@ if (!isset($_SESSION['login']) || ($_SESSION['tipo'] != "A")) {
         <label>N° tessera</label>
         <input type="text" id="n_tessera" name="n_tessera" required>
         <label>Tag bici</label>
-        <input type="text" id="Tag_bici" name="Tag_bici" required>
+        <input type="text" id="tag" name="tag" required>
         <label>Stazione</label>
         <?php
         require("../conf/db_config.php");
@@ -30,7 +30,7 @@ if (!isset($_SESSION['login']) || ($_SESSION['tipo'] != "A")) {
             echo "</select>";
             $conn->close();
         ?>
-        <button type="submit" name="operazione" value="noleggio">Noleggio</button>
-        <button type="submit" name="operazione" value="riconsegna">Riconsegna</button>
+        <button type="submit" name="operazione" value="N">Noleggio</button>
+        <button type="submit" name="operazione" value="R">Riconsegna</button>
 </form>
 </div>

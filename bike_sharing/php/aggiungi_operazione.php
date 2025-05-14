@@ -11,11 +11,18 @@ $stmt->bind_param($_POST["n_tessara"]);
 $stmt->execute();
 $result = $stmt->get_result();
 $idUtente = $result->fetchone();
-if($idUtente){
-    if($_POST[""])
-    $stmt = $conn->prepare("UPDATE utenti SET tessera = ? WHERE utenti.id_utente = ?");
-    $stmt->bind_param($_POST["n_tessera"],$idUtente);
-    $stmt->execute();
+
+$stmt = $conn->prepare("SELECT id_bici FROM bici WHERE tag=?");
+$stmt->bind_param($_POST["tag"]);
+$stmt->execute();
+$result = $stmt->get_result();
+$idBici = $result->fetchone();
+if($idBici && $idUtente){
+    
+        $stmt = $conn->prepare("INSERT INTO operazioni(data_ora, tipo, id_utente, id_bici, id_stazione) VALUES (?,?,?,?,?)");
+        $stmt->bind_param(date('Y-m-d H:i:s'), $_POST["operazione"],$idBici,$idUtente,$_POST["id_stazione"]);
+        $stmt->execute();
+    
     $conn->close();
     header("Location: ../templates/aggiungi_tessera.php?msg=OK");
 }
