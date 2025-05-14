@@ -1,10 +1,10 @@
 <?php
-include_once("./header.php");
+include_once("./templates/header.php");
 ?>
 
 <div id="central" style="width: 100%; text-align: center;">
 
-    <form method="POST" action="../php/registra_utente.php" class="formlogin">
+    <form method="POST" action="./php/registra_utente.php" class="formlogin">
         <p class="titolo_dark">Inserisci i tuoi dati</p>
         <div style="margin-top: 20px" class="divlogin">
             <input type="text" id="nome" name="nome" pattern=".{2,30}" placeholder="nome" required>
@@ -48,7 +48,7 @@ include_once("./header.php");
         <div style="margin-top: 20px">
         <?php if (isset($_GET['msg'])){
                     if ($_GET['msg']=='KO') echo "<p style=\"color: red\">ATTENZIONE! operazione non andata a buon fine!</p>";
-                    elseif ($_GET['msg']=='OK') echo "<p style=\"color: blue\">REGISTRATO! Operazione avvenuta con successo<br>ora puoi accedere al <a href=\"../index.php\">LOGIN</a></p>";
+                    elseif ($_GET['msg']=='OK') echo "<p style=\"color: blue\">REGISTRATO! Operazione avvenuta con successo<br>ora puoi accedere al <a href=\"./index.php\">LOGIN</a></p>";
                   }        
           ?>
         </div>
@@ -56,5 +56,5 @@ include_once("./header.php");
 </div>
 
 <?php
-include ("./footer.php");
+include ("./templates/footer.php");
 ?>

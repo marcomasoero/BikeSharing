@@ -1,20 +1,20 @@
 <?php
-include_once("./header.php");
+include_once("./templates/header.php");
 ?>
 
 <?php
-    include_once("./menu.php");
+    include_once("./templates/menu.php");
 ?>
 
 <div id="central" style="width: 100%; text-align: center;">
-    <form method="POST" action="../php/aggiungi_bici.php" class="formlogin">
+    <form method="POST" action="./php/aggiungi_bici.php" class="formlogin">
         <p class="titolo_dark">Inserisci i tuoi dati</p>
         <div style="margin-top: 20px" class="divlogin">
             <input type="text" id="tag" name="tag" pattern="TAG[0-9]{7}" placeholder="TAG bici ES:TAG0000000" required>
         </div>
         <div style="margin-top: 20px" class="divlogin">
             <?php
-                include_once("../conf/db_config.php");
+                include_once("./conf/db_config.php");
                 $stmt = $conn->prepare("SELECT id_stazione, nomeStazione FROM stazioni");
                 $stmt->execute();
                 $result = $stmt->get_result();
@@ -42,5 +42,5 @@ include_once("./header.php");
 </div>
 
 <?php
-include ("./footer.php");
+include ("./templates/footer.php");
 ?>

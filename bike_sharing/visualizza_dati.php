@@ -15,9 +15,13 @@ include_once("./templates/header_riservata.php");
     //STAMPO i dati che ricevo dall'URL creata in logincheck.php riga 20
     echo "<h3>Benvenut* ".$_SESSION['nome']." ".$_SESSION['cognome']."</h3>";
     require("./conf/db_config.php");
-
-    $stmt = $conn->prepare("SELECT * FROM utenti WHERE nome = ?");
-    $stmt->bind_param("s", $_SESSION['nome']);
+    
+    if($_SESSION['tipo'] == "A"){
+        $stmt = $conn->prepare("SELECT * FROM utenti");
+    }else{
+        $stmt = $conn->prepare("SELECT * FROM utenti WHERE nome = ?");
+        $stmt->bind_param("s", $_SESSION['nome']);
+    }
     //$stmt->bind_param    **** non ci sono parametri
     $stmt->execute();
     
@@ -50,7 +54,10 @@ include_once("./templates/header_riservata.php");
     echo "</tbody></table>";
 
 ?>
-
+<p>Vuoi vedere lo stato della tua tessera? <a href="visualizza_tessera.php">TESSERA</a></p>
+</div>
+<p>Vuoi modificare i tuoi dati personali? <a href="modifica_dati_form.php">MODIFICA</a></p>
+</div>
 <?php
 include_once("./templates/footer.php");
 ?>

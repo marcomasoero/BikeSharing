@@ -17,7 +17,8 @@ include_once("./templates/header_riservata.php");
 <div class="central">
 
 </div>
-    
+<p>Vuoi visualizzare le tue corse?<a href="visualizza_corse.php">CORSE</a></p>
+</div>
 <?php
 include_once("./templates/footer.php");
 ?>
