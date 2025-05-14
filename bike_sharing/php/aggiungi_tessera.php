@@ -1,8 +1,8 @@
 <?php
 require("../conf/db_config.php");
-
-if (!isset($_SESSION['login']) || ($_SESSION['tipo'] != 'A')) {
-    header("Location: ../templates/header_riservata.php");
+echo $_SESSION['tipo'];
+if (($_SESSION['tipo'] != 'A')) {
+    header("Location: ../home_riservata.php");
     exit();
 }
 

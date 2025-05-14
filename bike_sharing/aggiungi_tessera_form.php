@@ -1,15 +1,15 @@
 <?php
-include_once("./header_riservata.php");
-include_once("./menu.php");
-
-if (!isset($_SESSION['login']) || ($_SESSION['tipo'] != 'A')) {
-    header("Location: ../templates/header_riservata.php");
+include_once("./templates/header_riservata.php");
+include_once("./templates/menu.php");
+if (($_SESSION['tipo'] != 'A')) {
+    header("Location: ./home_riservata.php");
     exit();
 }
+
 ?>
 
 <div>
-    <form action="../php/aggiungi_tessera.php" method="POST">
+    <form action="./php/aggiungi_tessera.php" method="POST">
         <label>N° tessera</label>
         <input type="text" id="n_tessera" name="n_tessera" required>
         <label>Nome Utente</label>

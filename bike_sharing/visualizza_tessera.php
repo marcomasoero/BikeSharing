@@ -19,7 +19,7 @@ include_once("./templates/header_riservata.php");
     if($_SESSION['tipo'] == "A"){
         $stmt = $conn->prepare("SELECT * FROM utenti");
     }else{
-        $stmt = $conn->prepare("SELECT  FROM utenti WHERE nome = ?");
+        $stmt = $conn->prepare("SELECT * FROM utenti WHERE nome = ?");
         $stmt->bind_param("s", $_SESSION['nome']);
     }
     //$stmt->bind_param    **** non ci sono parametri
@@ -36,7 +36,6 @@ include_once("./templates/header_riservata.php");
     <td><b>nome</td>
     <td><b>cognome</td>
     <td><b>tessera</td>
-    <td><b>tipo</td>
     <td><b>statoUtente</td>
     </tr><tbody>";
 
@@ -46,14 +45,12 @@ include_once("./templates/header_riservata.php");
             <td>".$row['nome']."</td>
             <td>".$row['cognome']."</td>
             <td>".$row['tessera']."</td>
-            <td>".$row['tipo']."</td>
             <td>".$row['statoUtente']."</td>
             </tr>";
     }
     echo "</tbody></table>";
 
 ?>
-<p>Pagina Precedente <a href="visualizza_dati.php">DATI</a></p>
 </div>
 <?php
 include_once("./templates/footer.php");

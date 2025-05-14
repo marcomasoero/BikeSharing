@@ -30,7 +30,7 @@ include_once("./templates/menu.php");
         <div style="margin-top: 20px">
         <?php if (isset($_GET['msg'])){
                     if ($_GET['msg']=='KO') echo "<p style=\"color: red\">ATTENZIONE! operazione non andata a buon fine!</p>";
-                    elseif ($_GET['msg']=='OK') echo "<p style=\"color: blue\">REGISTRATO! Operazione avvenuta con successo<br>ora puoi accedere al <a href=\"./index.php\">LOGIN</a></p>";
+                    elseif ($_GET['msg']=='OK') echo "<p style=\"color: blue\">Operazione avvenuta con successo</p>";
                   }        
           ?>
         </div>

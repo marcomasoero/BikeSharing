@@ -1,9 +1,9 @@
 <?php
-include_once("../templates/header_riservata.php");
-include_once("../templates/menu.php");
+include_once("./templates/header_riservata.php");
+include_once("./templates/menu.php");
 
 if (!isset($_SESSION['login']) || ($_SESSION['tipo'] != 'A')) {
-    header("Location: ../templates/header_riservata.php");
+    header("Location: ./templates/home_riservata.php");
     exit();
 }
 ?>

@@ -2,7 +2,7 @@
 require("../conf/db_config.php");
 
 if (!isset($_SESSION['login']) || ($_SESSION['tipo'] != 'A')) {
-    header("Location: ../templates/header_riservata.php");
+    header("Location: ../home_riservata.php");
     exit();
 }
 
@@ -24,10 +24,10 @@ if($idBici && $idUtente){
         $stmt->execute();
     
     $conn->close();
-    header("Location: ../templates/aggiungi_tessera.php?msg=OK");
+    header("Location: ../templates/aggiungi_operazioni.php?msg=OK");
 }
 else{
     $conn->close();
-    header("Location: ../templates/aggiungi_tessera.php?msg=NO_UTENTE");
+    header("Location: ../templates/aggiungi_operazioni.php?msg=NO_UTENTE_o_bici");
 } 
 ?>
