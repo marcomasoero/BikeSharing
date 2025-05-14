@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['login']))
-   header("location: ./index.php");
+   header("location: ../index.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +11,7 @@ if (!isset($_SESSION['login']))
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="viewport">
     <title>Area Riservata Bikesharing</title>
-    <link rel="stylesheet" href="/bike_sharing/css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     
 </head>

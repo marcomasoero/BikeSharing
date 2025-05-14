@@ -16,11 +16,11 @@
             <?php
                 session_start();
                 if (isset($_SESSION['login'])) {
-                    echo "<input type='button' id='profilo' class='area_personale' value='area personale' onClick=\"location.href='./templates/home_riservata.php'\">";
-                }elseif (($_SERVER['PHP_SELF'] == '/bike_sharing/templates/login.php') || ($_SERVER['PHP_SELF'] == '/bike_sharing/templates/registra_utente_form.php')){
+                    echo "<input type='button' id='profilo' class='area_personale' value='area personale' onClick=\"location.href='./home_riservata.php'\">";
+                }elseif (($_SERVER['PHP_SELF'] == '/bike_sharing/login.php') || ($_SERVER['PHP_SELF'] == '/bike_sharing/templates/registra_utente_form.php')){
                     echo "<input type='button' id='stazioni' class='stazioni' value='stazioni' onClick=\"location.href='../index.php'\">";
                 }else{
-                    echo "<input type='button' id='login' class='login' value='login' onClick=\"location.href='./templates/login.php'\">";
+                    echo "<input type='button' id='login' class='login' value='login' onClick=\"location.href='./login.php'\">";
                 }
         
             ?>

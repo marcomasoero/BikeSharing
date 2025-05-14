@@ -19,15 +19,13 @@ include_once("./header.php");
             <input type="email" id="email" name="mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" maxlength="50" placeholder="email" required>
         </div>
         <div style="margin-top: 20px" class="divlogin">
-            <label>data di nascita</label><br>
             <input type="date" id="data_nascita" name="data_nascita" placeholder="data di nascita" required>
         </div>
         <div style="margin-top: 20px" class="divlogin">
-            <label>data scadenza carta</label><br>
             <input type="month" id="scadenza_carta" name="scadenza_carta" placeholder="scadenza carta" required>
         </div>
         <div style="margin-top: 20px" class="divlogin">
-            <input type="text" id="codice_carta" name="codice_carta" pattern="[0-9]{16}" maxlength="16" required placeholder="Numero carta Es: 1234567812345678">
+            <input type="text" id="codice_carta" name="codice_carta" pattern="[0-9]{16}" maxlength="16" required placeholder="Numero cartaEs: 1234567812345678">
         </div>
         <div style="margin-top: 20px" class="divlogin">
             <input type="text" id="cvv_carta" name="cvv_carta" pattern="[0-9]{3}" maxlength="3" placeholder="CVV" required>
