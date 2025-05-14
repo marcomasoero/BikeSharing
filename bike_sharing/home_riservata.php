@@ -1,9 +1,8 @@
 <?php
+session_start()
 include_once("./templates/header_riservata.php");
-?>
-
-<?php
-    include_once("./templates/menu.php");
+include_once("./templates/menu.php");
+if
 ?>
 
 <div class="benvenuto" style="width: 100%;margin-left:50px">

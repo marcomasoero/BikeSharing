@@ -1,13 +1,14 @@
 <?php
-include_once("./header_riservata.php");
-?>
+include_once("./templates/header_riservata.php");
+include_once("./templates/menu.php");
 
-<?php
-    include_once("./menu.php");
-?>
 
-<?php
-    require("../conf/db_config.php");
+if (($_SESSION['tipo'] != 'A')) {
+    header("Location: ../templates/header_riservata.php");
+    exit();
+}
+
+    require("./conf/db_config.php");
     $stmt = $conn->prepare("SELECT * FROM utenti WHERE id_utente = ?");
     $stmt->bind_param("i", $_GET["id_utente"]);
     $stmt->execute();
@@ -63,5 +64,5 @@ include_once("./header_riservata.php");
     </div>
 </div>
 <?php
-include_once("./footer.php");
+include_once("./templates/footer.php");
 ?>

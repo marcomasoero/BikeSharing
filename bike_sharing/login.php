@@ -4,7 +4,6 @@ session_unset();
 session_destroy();
 
 include_once("./templates/header.php");
-//require_once ("./conf/db_config.php");
 ?>
 
 <div id="central">
@@ -29,7 +28,6 @@ include_once("./templates/header.php");
         <p class="signup-link"><a href="./index.php">HOME</a></p> 
           
           <?php 
-
           if (isset($_GET['msg'])){
                     if ($_GET['msg']=='ERR_ACCESSO') echo "<p style=\"color: red\">Dati di accesso errati</p>";
                   }        

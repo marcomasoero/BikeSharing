@@ -1,22 +1,22 @@
 <?php
-include_once("./header_riservata.php");
-include_once("./menu.php");
+include_once("../templates/header_riservata.php");
+include_once("../templates/menu.php");
 
-if (!isset($_SESSION['login']) || ($_SESSION['tipo'] != "A")) {
+if (!isset($_SESSION['login']) || ($_SESSION['tipo'] != 'A')) {
     header("Location: ../templates/header_riservata.php");
     exit();
 }
 ?>
 
 <div>
-    <form action="../php/aggiungi_operazione.php" method="POST">
+    <form action="./php/aggiungi_operazione.php" method="POST">
         <label>N° tessera</label>
         <input type="text" id="n_tessera" name="n_tessera" required>
         <label>Tag bici</label>
         <input type="text" id="tag" name="tag" required>
         <label>Stazione</label>
         <?php
-        require("../conf/db_config.php");
+        require("./conf/db_config.php");
             $stmt = $conn->prepare("SELECT id_stazione, nomeStazione FROM stazioni");
             $stmt->execute();
             $result = $stmt->get_result();

@@ -54,7 +54,7 @@ include_once("./templates/header.php");
         </div>
     </form>
 </div>
-<p>Pagina Precedente <a href="visualizza_dati.php">DATI</a></p>
+<p>Pagina Precedente <a href="./visualizza_dati.php">DATI</a></p>
 </div>
 <?php
 include ("./templates/footer.php");

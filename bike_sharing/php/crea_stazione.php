@@ -6,6 +6,6 @@
     if ($stmt->execute()) {
         header("Location: ../crea_stazione_form.php?msg=OK");
     } else {
-        header("Location: ./crea_stazione_form.php?msg=KO");
+        header("Location: ../crea_stazione_form.php?msg=KO");
     }
 ?>
