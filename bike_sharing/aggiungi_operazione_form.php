@@ -43,8 +43,11 @@ if (!isset($_SESSION['login']) || ($_SESSION['tipo'] != 'A')) {
         </div>
         <div style="margin-top: 20px">
             <?php if (isset($_GET['msg'])){
-                        if ($_GET['msg']=='NO_UTENTE_o_bici') echo "<p style=\"color: red\">ATTENZIONE! operazione non andata a buon fine!</p>";
+                        if ($_GET['msg']=='ERROR_UTENTE') echo "<p style=\"color: red\">ATTENZIONE! utente non presente o disattivato!</p>";
+                        elseif ($_GET['msg']=='ERROR_BICI') echo "<p style=\"color: red\">ATTENZIONE! bicicletta non presente o in uso!</p>";
                         elseif ($_GET['msg']=='OK') echo "<p style=\"color: blue\">Operazione avvenuta con successo</p>";
+                        elseif ($_GET['msg']=='ERRORE') echo "<p style=\"color: red\">ATTENZIONE! operazione non andata a buon fine!</p>";
+                        elseif ($_GET['msg']=='STAZIONE_PIENA') echo "<p style=\"color: red\">ATTENZIONE! stazione piena!</p>";
                     }        
             ?>
         </div>
