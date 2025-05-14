@@ -1,3 +1,4 @@
+@ -0,0 +1,78 @@
 <?php
 require("../conf/db_config.php");
 
@@ -20,7 +21,6 @@ if ($result->num_rows === 0) {
 
 $existing = $result->fetch_assoc();
 
-if($_SESSION['tipo'] == "U"){
 // Sostituisce i valori POST vuoti con quelli esistenti
 $nome           = $_POST['nome']           !== '' ? $_POST['nome']           : $existing['nome'];
 $cognome        = $_POST['cognome']        !== '' ? $_POST['cognome']        : $existing['cognome'];
@@ -33,6 +33,8 @@ $cvv_carta      = $_POST['cvv_carta']      !== '' ? $_POST['cvv_carta']      : $
 $via            = $_POST['via']            !== '' ? $_POST['via']            : $existing['via'];
 $citta          = $_POST['citta']          !== '' ? $_POST['citta']          : $existing['citta'];
 $psw            = $_POST['psw']            !== '' ? $_POST['psw']            : $existing['psw'];
+
+// Prepara la query di aggiornamento
 $stmt = $conn->prepare("
     UPDATE utenti SET 
         nome = ?, 
@@ -62,23 +64,8 @@ $stmt->bind_param(
     $via,
     $citta,
     $psw,
-    $_SESSION["user"]
+    $user
 );
-}
-else{
-$psw            = $_POST['psw']            !== '' ? $_POST['psw']            : $existing['psw'];
-$stmt = $conn->prepare("
-    UPDATE utenti SET 
-        psw = ?
-    WHERE user = ?
-");
-
-$stmt->bind_param(
-    "ss",
-    $psw,
-    $_SESSION["user"]
-);
-}
 
 if ($stmt->execute()) {
     if ($stmt->affected_rows > 0) {
