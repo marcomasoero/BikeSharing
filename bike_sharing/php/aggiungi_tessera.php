@@ -1,29 +1,25 @@
 <?php
 require("../conf/db_config.php");
 
-if (!isset($_SESSION['login']) || ($_SESSION['tipo'] != "A")) {
+if (!isset($_SESSION['login']) || ($_SESSION['tipo'] != 'A')) {
     header("Location: ../templates/header_riservata.php");
     exit();
 }
 
-$stmt = $conn->prepare("SELECT * FROM classi WHERE nomeC = ?");
-$stmt->bind_param("s", $_POST['nomeClasse']);
+$stmt = $conn->prepare("SELECT id_utente FROM utenti WHERE nome=? AND cognome=?");
+$stmt->bind_param($_POST["nome_utente"],$_POST["cognome_utente"]);
 $stmt->execute();
 $result = $stmt->get_result();
-$rows = $result->fetch_assoc();
-
-if($rows){
-$stmt = $conn->prepare("DELETE FROM `classi` WHERE nomeC = ?");
-$stmt->bind_param("s", $_POST['nomeClasse']);
-$stmt->execute();
-if($stmt->execute()){
-    header("Location: ../templates/visualizzaClassi.php?msg=OK");
+$idUtente = $result->fetchone();
+if($idUtente){
+    $stmt = $conn->prepare("UPDATE utenti SET tessera = ? WHERE utenti.id_utente = ?");
+    $stmt->bind_param($_POST["n_tessera"],$idUtente);
+    $stmt->execute();
+    $conn->close();
+    header("Location: ../templates/aggiungi_tessera.php?msg=OK");
 }
 else{
-    header("Location: ../templates/visualizzaClassi.php?msg=ERRORE");
-}
-}else{
-    header("Location: ../templates/visualizzaClassi.php?msg=NESSUNA_CLASSE");
-}
-$conn->close();
+    $conn->close();
+    header("Location: ../templates/aggiungi_tessera.php?msg=NO_UTENTE");
+} 
 ?>

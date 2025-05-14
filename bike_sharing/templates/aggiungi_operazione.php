@@ -1,6 +1,5 @@
 <?php
-session_start();
-include_once("./header.php");
+include_once("./header_riservata.php");
 include_once("./menu.php");
 
 if (!isset($_SESSION['login']) || ($_SESSION['tipo'] != "A")) {
@@ -13,10 +12,13 @@ if (!isset($_SESSION['login']) || ($_SESSION['tipo'] != "A")) {
     <form action="../php/aggiungi_tessera.php" method="POST">
         <label>N° tessera</label>
         <input type="text" id="n_tessera" name="n_tessera" required>
-        <label>Id Utente</label>
+        <label>Nome Utente</label>
+        <input type="text" id="nome_utente" name="nome_utente" required>
+        <label>Cognome Utente</label>
+        <input type="text" id="cognome_utente" name="cognome_utente" required>
         <label>Stazione</label>
-        <input type="text" id="id_utente" name="id_utente" required>
         <?php
+        require("../conf/db_config.php");
             $stmt = $conn->prepare("SELECT id_stazione, nomeStazione FROM stazioni");
             $stmt->execute();
             $result = $stmt->get_result();
@@ -30,6 +32,6 @@ if (!isset($_SESSION['login']) || ($_SESSION['tipo'] != "A")) {
             echo "</select>";
             $conn->close();
         ?>
-        <button type="submit">Cancella</button>
+        <button type="submit">Aggiungi</button>
 </form>
 </div>
