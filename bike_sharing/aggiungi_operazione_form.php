@@ -8,7 +8,7 @@ if (!isset($_SESSION['login']) || ($_SESSION['tipo'] != 'A')) {
 }
 ?>
 
-<div>
+<div id="central" style="width: 100%; text-align: center;">
     <form action="./php/aggiungi_operazione.php" method="POST">
         <label>N° tessera</label>
         <input type="text" id="n_tessera" name="n_tessera" required>

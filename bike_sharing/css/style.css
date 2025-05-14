@@ -495,6 +495,10 @@ input, input:valid {
   transform: translate3d(1200px, 0, 0);
 }
 
+.menu-open:checked ~ .menu-item:nth-child(11) {
+  transform: translate3d(1350px, 0, 0);
+}
+
 @media (max-width: 915px) and (min-width: 615px) {
   .menu-open:checked ~ .menu-item:nth-child(6) {
   transform: translate3d(150px, 70px, 0);
@@ -514,6 +518,10 @@ input, input:valid {
     
   .menu-open:checked ~ .menu-item:nth-child(10) {
     transform: translate3d(750px, 70px, 0);
+  }
+
+  .menu-open:checked ~ .menu-item:nth-child(11) {
+    transform: translate3d(900px, 70px, 0);
   }
 }
 
@@ -536,6 +544,14 @@ input, input:valid {
 
   .menu-open:checked ~ .menu-item:nth-child(9) {
     transform: translate3d(150px, 210px, 0);
+  }
+
+  .menu-open:checked ~ .menu-item:nth-child(10) {
+    transform: translate3d(300px, 280px, 0);
+  }
+
+  .menu-open:checked ~ .menu-item:nth-child(11) {
+    transform: translate3d(150px, 350px, 0);
   }
 }
 

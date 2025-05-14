@@ -31,7 +31,7 @@ if (($_SESSION['tipo'] != 'A')) {
             <p class='card-text'> Cognome: <?php echo $utente["cognome"]?></p>
             <p class='card-text'> Tessera: <?php echo $utente["tessera"]?></p>
             <p class='card-text'> Stato: <?php if ($utente["statoUtente"] == "A"){echo "Attivo";}else{echo "Disattivo";}?></p>
-            <?php echo "<form action='../php/cambia_stato_utente.php?id_utente=".$_GET['id_utente']."' method='POST'>";?>
+            <?php echo "<form action='./php/cambia_stato_utente.php?id_utente=".$_GET['id_utente']."' method='POST'>";?>
                 <select id="statoUtente" name="statoUtente">
                     <option value="A">Attivo</option>
                     <option value="D">Disattivo</option>

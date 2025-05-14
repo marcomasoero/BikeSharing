@@ -14,7 +14,9 @@
       echo '<a href="./aggiungi_bici_form.php" class="menu-item green">Aggiungi Bici<i class="fa fa-coffee"></i> </a>';
       echo '<a href="./aggiungi_tessera_form.php" class="menu-item purple">Aggiungi tessera<i class="fa fa-microphone"></i> </a>';
       echo '<a href="./aggiungi_operazione_form.php" class="menu-item purple">Aggiungi operazioni<i class="fa fa-microphone"></i> </a>';
-      echo '<a href="./visualizza_dati.php" class="menu-item purple">Visualizza utenti<i class="fa fa-microphone"></i> </a>';
+      echo '<a href="./visualizza_dati.php" class="menu-item purple">Visualizza profilo<i class="fa fa-microphone"></i> </a>';
+      echo '<a href="./visualizza_profili.php" class="menu-item purple">visualizza utenti<i class="fa fa-microphone"></i> </a>';
+      
    }
    else{
       echo '<a href="./visualizza_dati.php" class="menu-item purple">Visualizza Profilo<i class="fa fa-microphone"></i> </a>';

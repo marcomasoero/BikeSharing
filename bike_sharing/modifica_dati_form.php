@@ -6,7 +6,9 @@ include_once("./templates/header.php");
 
     <form method="POST" action="./php/modifica_dati.php" class="formlogin">
         <p class="titolo_dark">Inserisci i dati che desideri modificare</p>
-        <div style="margin-top: 20px" class="divlogin">
+        <?php
+            if($_SESSION['tipo'] == "U"){
+                echo '<div style="margin-top: 20px" class="divlogin">
             <input type="text" id="nome" name="nome" pattern=".{2,30}" placeholder="nome">
         </div>
         <div style="margin-top: 20px" class="divlogin">
@@ -35,15 +37,20 @@ include_once("./templates/header.php");
         </div>
         <div style="margin-top: 20px" class="divlogin">
             <input type="text" id="citta" name="citta" pattern="[A-Za-z\s]{2,30}" placeholder="città">
-        </div>
-        <div style="margin-top: 20px" class="divlogin">
+        </div>';
+            }
+        else{
+            echo '<div style="margin-top: 20px" class="divlogin">
             <input type="text" id="user" name="user" pattern="[a-z]{2,20}" required placeholder="user per accesso">
-        </div>
+        </div>';
+        }
+        ?>
+        
         <div style="margin-top: 20px" class="divlogin">
             <input type="password" id="psw" name="psw" pattern=".{8,30}" placeholder="password">
         </div>
         <div style="margin-top: 20px">
-            <input type="submit" value="Registra" class="buttonform">
+            <input type="submit" value="Modifica dati" class="buttonform">
         </div>
         <div style="margin-top: 20px">
         <?php if (isset($_GET['msg'])){
