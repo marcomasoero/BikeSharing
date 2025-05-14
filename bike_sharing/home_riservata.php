@@ -12,6 +12,8 @@ include_once("./templates/menu.php");
 <div>
 
 <div class="central">
+
+    <h2>OPERAZIONI</h2>
         
     <?php
     require("./conf/db_config.php");

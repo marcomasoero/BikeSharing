@@ -1,58 +1,95 @@
-@ -0,0 +1,78 @@
 <?php
+session_start();
 require("../conf/db_config.php");
 
-// Verifica che il campo "user" sia presente
-if (!isset($_POST['user']) || $_POST['user'] === '') {
-    die("Errore: campo 'user' mancante.");
+$stmt = $conn->prepare("SELECT id_utente FROM utenti WHERE user = ? AND id_utente != ?");
+$stmt->bind_param("si", $_POST['user'], $_SESSION['id_utente']);
+$stmt->execute();
+$result = $stmt->get_result();
+$user = $result->fetch_assoc();
+$conn->close();
+if($user){
+    header("Location: ../modifica_dati_form.php?msg=USER_PRESENTE");
 }
 
-$user = $_POST['user'];
+require("../conf/db_config.php");
 
-// Recupera i dati esistenti
-$stmt_select = $conn->prepare("SELECT * FROM utenti WHERE user = ?");
-$stmt_select->bind_param("s", $user);
-$stmt_select->execute();
-$result = $stmt_select->get_result();
+$stmt = $conn->prepare("SELECT * FROM utenti WHERE id_utente = ?");
+$stmt->bind_param("i", $_SESSION['id_utente']);
+$stmt->execute();
+$result = $stmt->get_result();
+$utente = $result->fetch_assoc();
+$conn->close();
 
-if ($result->num_rows === 0) {
-    die("Errore: utente non trovato.");
+print_r($utente["user"]);
+
+if($_POST["nome"] == NULL){
+    $nome = $utente["nome"];
+}else{
+    $nome = $_POST["nome"];
+}
+if($_POST["cognome"] == NULL){
+    $cognome = $utente["cognome"];
+}else{
+    $cognome = $_POST["cognome"];
+}
+if($_POST["telefono"] == NULL){
+    $telefono = $utente["telefono"];
+}else{
+    $telefono = $_POST["telefono"];
+}
+if($_POST["mail"] == NULL){
+    $mail = $utente["mail"];
+}else{
+    $mail = $_POST["mail"];
+}
+if($_POST["data_nascita"] == NULL){
+    $data_nascita = $utente["data_nascita"];
+}else{
+    $data_nascita = $_POST["data_nascita"];
+}
+if($_POST["scadenza_carta"] == NULL){
+    $scadenza_carta = $utente["scadenza_carta"];
+}else{
+    $scadenza_carta = $_POST["scadenza_carta"];
+}
+if($_POST["codice_carta"] == NULL){
+    $codice_carta = $utente["codice_carta"];
+}else{
+    $codice_carta = $_POST["codice_carta"];
+}
+if($_POST["cvv_carta"] == NULL){
+    $cvv_carta = $utente["cvv_carta"];
+}else{
+    $cvv_carta = $_POST["cvv_carta"];
+}
+if($_POST["via"] == NULL){
+    $via = $utente["via"];
+}else{
+    $via = $_POST["via"];
+}
+if($_POST["citta"] == NULL){
+    $citta = $utente["citta"];
+}else{
+    $citta = $_POST["citta"];
+}
+if($_POST["user"] == NULL){
+    $user = $utente["user"];
+}else{
+    $user = $_POST["user"];
+}
+if($_POST["psw"] == NULL){
+    $psw = $utente["psw"];
+}else{
+    $psw = $_POST["psw"];
 }
 
-$existing = $result->fetch_assoc();
+require("../conf/db_config.php");
 
-// Sostituisce i valori POST vuoti con quelli esistenti
-$nome           = $_POST['nome']           !== '' ? $_POST['nome']           : $existing['nome'];
-$cognome        = $_POST['cognome']        !== '' ? $_POST['cognome']        : $existing['cognome'];
-$telefono       = $_POST['telefono']       !== '' ? $_POST['telefono']       : $existing['telefono'];
-$mail           = $_POST['mail']           !== '' ? $_POST['mail']           : $existing['mail'];
-$data_nascita   = $_POST['data_nascita']   !== '' ? $_POST['data_nascita']   : $existing['data_nascita'];
-$scadenza_carta = $_POST['scadenza_carta'] !== '' ? $_POST['scadenza_carta'] : $existing['scadenza_carta'];
-$codice_carta   = $_POST['codice_carta']   !== '' ? $_POST['codice_carta']   : $existing['codice_carta'];
-$cvv_carta      = $_POST['cvv_carta']      !== '' ? $_POST['cvv_carta']      : $existing['cvv_carta'];
-$via            = $_POST['via']            !== '' ? $_POST['via']            : $existing['via'];
-$citta          = $_POST['citta']          !== '' ? $_POST['citta']          : $existing['citta'];
-$psw            = $_POST['psw']            !== '' ? $_POST['psw']            : $existing['psw'];
-
-// Prepara la query di aggiornamento
-$stmt = $conn->prepare("
-    UPDATE utenti SET 
-        nome = ?, 
-        cognome = ?, 
-        telefono = ?, 
-        mail = ?, 
-        data_nascita = ?, 
-        scadenza_carta = ?, 
-        codice_carta = ?, 
-        cvv_carta = ?, 
-        via = ?, 
-        citta = ?, 
-        psw = ?
-    WHERE user = ?
-");
+$stmt = $conn->prepare("UPDATE utenti SET nome = ?, cognome = ?, telefono = ?, mail = ?, data_nascita = ?, scadenza_carta = ?, codice_carta = ?, cvv_carta = ?, via = ?, citta = ?, user = ?, psw = ? WHERE id_utente = ?");
 
 $stmt->bind_param(
-    "ssssssssssss",
+    "ssssssssssssi",
     $nome,
     $cognome,
     $telefono,
@@ -63,17 +100,14 @@ $stmt->bind_param(
     $cvv_carta,
     $via,
     $citta,
+    $user,
     $psw,
-    $user
+    $_SESSION['id_utente']   
 );
 
 if ($stmt->execute()) {
-    if ($stmt->affected_rows > 0) {
-        header("Location: ../visualizza_dati.php?msg=OK");
-    } else {
-        header("Location: ../visualizza_dati.php?msg=NessunaModifica");
-    }
+    header("Location: ../visualizza_dati.php?msg=OK");
 } else {
-    header("Location: ../visualizza_dati.php?msg=ErroreQuery");
+    header("Location: ../visualizza_dati.php?msg=KO");
 }
 ?>

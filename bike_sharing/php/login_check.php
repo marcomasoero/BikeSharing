@@ -16,7 +16,7 @@ $conn->close();
 if (($_POST['user']==$row['user'])&&($_POST['psw']==$row['psw'])){ //se il login è corretto rimanda alla homepage salvando nella SESSION i dati principali dello user
     session_start();
     $_SESSION['login']='ok';
-    $_SESSION['id_utente']= $row['id'];
+    $_SESSION['id_utente']= $row['id_utente'];
     $_SESSION['nome']=$row['nome'];
     $_SESSION['cognome']=$row['cognome'];
     $_SESSION['tipo'] = $row['tipo'];

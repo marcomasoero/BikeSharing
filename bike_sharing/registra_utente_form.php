@@ -43,7 +43,7 @@ include_once("./templates/header.php");
             <input type="password" id="psw" name="psw" pattern=".{8,30}" placeholder="password" required>
         </div>
         <div style="margin-top: 20px">
-            <input type="submit" value="Registra" class="buttonform">
+            <input type="submit" value="Modifica dati" class="buttonform">
         </div>
         <div style="margin-top: 20px">
         <?php if (isset($_GET['msg'])){
