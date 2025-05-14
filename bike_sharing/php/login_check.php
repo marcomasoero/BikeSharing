@@ -19,11 +19,7 @@ if (($_POST['user']==$row['user'])&&($_POST['psw']==$row['psw'])){ //se il login
     $_SESSION['id_utente']= $row['id'];
     $_SESSION['nome']=$row['nome'];
     $_SESSION['cognome']=$row['cognome'];
-    if($row["tessera"][0] == "A"){
-        $_SESSION["tipo"] = "amm";
-    }else{
-        $_SESSION["tipo"] = "usr";
-    }
+    $_SESSION['tipo']=$row['tipo'];
     header("location: ../home_riservata.php");
 }else{ //altrimenti rimando alla pagina del FORM di login una variabile "msg" che verrà letto in
     header("location: ../index.php?msg=ERR_ACCESSO");

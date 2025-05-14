@@ -9,13 +9,11 @@ if (!isset($_SESSION['login']) || ($_SESSION['tipo'] != "A")) {
 ?>
 
 <div>
-    <form action="../php/aggiungi_tessera.php" method="POST">
+    <form action="../php/aggiungi_operazione.php" method="POST">
         <label>N° tessera</label>
         <input type="text" id="n_tessera" name="n_tessera" required>
-        <label>Nome Utente</label>
-        <input type="text" id="nome_utente" name="nome_utente" required>
-        <label>Cognome Utente</label>
-        <input type="text" id="cognome_utente" name="cognome_utente" required>
+        <label>Tag bici</label>
+        <input type="text" id="Tag_bici" name="Tag_bici" required>
         <label>Stazione</label>
         <?php
         require("../conf/db_config.php");
@@ -32,6 +30,7 @@ if (!isset($_SESSION['login']) || ($_SESSION['tipo'] != "A")) {
             echo "</select>";
             $conn->close();
         ?>
-        <button type="submit">Aggiungi</button>
+        <button type="submit" name="operazione" value="noleggio">Noleggio</button>
+        <button type="submit" name="operazione" value="riconsegna">Riconsegna</button>
 </form>
 </div>
