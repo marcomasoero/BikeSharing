@@ -10,27 +10,43 @@ if (!isset($_SESSION['login']) || ($_SESSION['tipo'] != 'A')) {
 
 <div id="central" style="width: 100%; text-align: center;">
     <form action="./php/aggiungi_operazione.php" method="POST">
-        <label>N° tessera</label>
-        <input type="text" id="n_tessera" name="n_tessera" required>
-        <label>Tag bici</label>
-        <input type="text" id="tag" name="tag" required>
-        <label>Stazione</label>
-        <?php
-        require("./conf/db_config.php");
-            $stmt = $conn->prepare("SELECT id_stazione, nomeStazione FROM stazioni");
-            $stmt->execute();
-            $result = $stmt->get_result();
-            $rows = $result->fetch_all(MYSQLI_ASSOC);
+        <p class="titolo_dark">Aggiungi operazione</p>
+        <div style="margin-top: 20px" class="divlogin">
+            <label>N° tessera</label>
+            <input type="text" id="n_tessera" name="n_tessera" required>
+        </div>
+        <div style="margin-top: 20px" class="divlogin">
+            <label>Tag bici</label>
+            <input type="text" id="tag" name="tag" required>
+        </div>
+        <div style="margin-top: 20px" class="divlogin">
+            <label>Stazione</label>
+            <?php
+            require("./conf/db_config.php");
+                $stmt = $conn->prepare("SELECT id_stazione, nomeStazione FROM stazioni");
+                $stmt->execute();
+                $result = $stmt->get_result();
+                $rows = $result->fetch_all(MYSQLI_ASSOC);
 
-        
-            echo "<select name='id_stazione' required>";
-            foreach ($rows as $row) {
-                echo "<option value='".$row["id_stazione"]."'>".$row["nomeStazione"]."</option>";
-            }
-            echo "</select>";
-            $conn->close();
-        ?>
-        <button type="submit" name="operazione" value="N">Noleggio</button>
-        <button type="submit" name="operazione" value="R">Riconsegna</button>
+            
+                echo "<select name='id_stazione' required>";
+                foreach ($rows as $row) {
+                    echo "<option value='".$row["id_stazione"]."'>".$row["nomeStazione"]."</option>";
+                }
+                echo "</select>";
+                $conn->close();
+            ?>
+        </div>
+        <div style="margin-top: 20px">
+            <button type="submit" name="operazione" value="N">Noleggio</button>
+            <button type="submit" name="operazione" value="R">Riconsegna</button>
+        </div>
+        <div style="margin-top: 20px">
+            <?php if (isset($_GET['msg'])){
+                        if ($_GET['msg']=='NO_UTENTE_o_bici') echo "<p style=\"color: red\">ATTENZIONE! operazione non andata a buon fine!</p>";
+                        elseif ($_GET['msg']=='OK') echo "<p style=\"color: blue\">Operazione avvenuta con successo</p>";
+                    }        
+            ?>
+        </div>
 </form>
 </div>
