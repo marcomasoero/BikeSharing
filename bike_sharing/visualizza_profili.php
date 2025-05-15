@@ -2,7 +2,7 @@
 include_once("./templates/header_riservata.php");
 include_once("./templates/menu.php");
 ?>
-<div class="central">
+<div id="central">
 <?php
         if($_SESSION["tipo"] == "A"){
             /*echo "<h3>UTENTI</h3>";*/
