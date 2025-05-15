@@ -19,6 +19,12 @@ include_once("./templates/header_riservata.php");
         $result = $stmt->get_result();
         $utente = $result->fetch_assoc();
         $conn->close();
+
+        if ($utente["statoUtente"] == "A"){
+            $stato = "Attivo";
+        }else{
+            $stato = "Disattivo";
+        }
         
         echo "<div class='card-profilo' style='width: 18rem;'>
                 <div class='card-body'>
@@ -37,6 +43,7 @@ include_once("./templates/header_riservata.php");
                     <p class='card-text'> via: ".$utente["via"]."</p>
                     <p class='card-text'> città: ".$utente["citta"]."</p>
                     <p class='card-text'> tessera: ".$utente["tessera"]."</p>
+                    <p class='card-text'> Stato utente: ".$stato."</p>
                     <a href='modifica_dati_form.php' class='btn btn-primary'>Modifica dati</a>
                 </div>
             </div>";

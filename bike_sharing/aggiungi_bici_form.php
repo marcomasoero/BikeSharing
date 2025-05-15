@@ -36,6 +36,7 @@ include_once("./templates/header.php");
                     if ($_GET['msg']=='KO') echo "<p style=\"color: red\">ATTENZIONE! operazione non andata a buon fine!</p>";
                     elseif ($_GET['msg']=='OK') echo "<p style=\"color: blue\">Operazione avvenuta con successo</p>";
                     elseif ($_GET['msg']=='BICI_PRESENTE') echo "<p style=\"color: red\">Bici già inserita</p>";
+                    elseif ($_GET['msg']=='STAZIONE_PIENA') echo "<p style=\"color: red\">Stazione Piena</p>";
                   }        
           ?>
         </div>
